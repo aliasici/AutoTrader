@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 public class GoogleTitleVerification {
 
-    public static void main(String[] args) throws InterruptedException{
+    public static void main(String[] args) {
 
         //        TC#4:	Google	search
 //        1-Open	a	chrome	browse
