@@ -16,6 +16,7 @@ public class NavigationAndTitleVerification {
 
         //open browser
         // 2-Go to: https://google.com
+        assert driver != null;
         driver.get("https://www.google.com");
 
         // 3-Click to Gmail from top right
