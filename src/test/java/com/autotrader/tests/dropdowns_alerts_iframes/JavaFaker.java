@@ -1,4 +1,4 @@
-package com.autotrader.tests.dropdowns;
+package com.autotrader.tests.dropdowns_alerts_iframes;
 
 import com.github.javafaker.Faker;
 import org.testng.annotations.Test;
