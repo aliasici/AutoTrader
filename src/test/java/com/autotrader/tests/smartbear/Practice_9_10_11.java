@@ -6,9 +6,11 @@ import com.autotrader.tests.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class Practice_9_10_11 {
@@ -45,6 +47,16 @@ public class Practice_9_10_11 {
 
         deleteSelected.click();
         BrowserUtils.wait(3);
+        // SmartBearUtilities.verifyOrder(driver,"Mark Smith");
+
+        List<WebElement> nameList = driver.findElements(By.xpath("//table[@id='ctl00_MainContent_orderGrid']//tr/td[2]"));
+
+        for(WebElement each : nameList){
+            Assert.assertFalse(each.getText().equals("Mark Smith"));
+        }
+
+
+
 
 
     }
