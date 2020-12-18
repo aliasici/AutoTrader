@@ -1,28 +1,21 @@
 package com.autotrader.tests.smartbear;
 
+import com.autotrader.tests.base.TestBase;
 import com.autotrader.tests.utilities.BrowserUtils;
 import com.autotrader.tests.utilities.SmartBearUtilities;
-import com.autotrader.tests.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-public class Practice_9_10_11 {
+public class Practice_9_10_11 extends TestBase {
+    // Finally I moved all @BeforeMethod and @AfterMethod in TestBase
 
-    WebDriver driver;
 
-    @BeforeMethod
-    public void setupMethod(){
-        driver = WebDriverFactory.getDriver("chrome");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
+    @Test
+    public void p9_delete_order_task(){
         //http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx
         driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
 
@@ -32,11 +25,7 @@ public class Practice_9_10_11 {
         BrowserUtils.wait(3);
 
 
-    }
-    @Test
-    public void p9_delete_order_task(){
-
-       // WebElement markSmithCheckbox = driver.findElement(By.xpath("//td[.='Mark Smith']/preceding-sibling::td[1]"));
+        // WebElement markSmithCheckbox = driver.findElement(By.xpath("//td[.='Mark Smith']/preceding-sibling::td[1]"));
         //WebElement markSmithCheckbox = driver.findElement(By.xpath("//td[.='Mark Smith']/../td[1]"));
 
         WebElement markSmithCheckBox = driver.findElement(By.xpath("//td[.='Mark Smith']/../td[1]"));
