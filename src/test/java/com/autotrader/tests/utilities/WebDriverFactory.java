@@ -15,6 +15,16 @@ public class WebDriverFactory {
         #4 -> to make our code easy to maintain.
      */
 
+    /*
+    /* TASK: NEW METHOD CREATION
+   Method name: getDrivergit add
+   Static method
+   Accepts string argument: browserType --> will determine what browser opens
+       -> if "chrome" opens chrome browser
+       -> if "firefox" opens firefox browser
+   return type: WebDriver
+    */
+
 
     public static WebDriver getDriver(String browserType){
         if(browserType.equalsIgnoreCase("chrome")){
