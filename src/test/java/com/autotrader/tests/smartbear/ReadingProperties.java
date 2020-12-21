@@ -1,5 +1,6 @@
 package com.autotrader.tests.smartbear;
 
+import com.autotrader.tests.utilities.ConfigurationReader;
 import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
@@ -26,11 +27,23 @@ public class ReadingProperties {
 
         properties.load(file);
 
-        properties.getProperty("browser");
+        // We read from the file
+        System.out.println("properties.getProperty(\"browser\") = " + properties.getProperty("browser"));
+        System.out.println("properties.getProperty(\"username\") = " + properties.getProperty("username"));
 
+        // Close the file
         file.close();
-
 
     }
 
+    @Test
+    public void using_properties_utility_method(){
+        //This will read the given "key's" value and return it
+        // as a String
+        System.out.println("ConfigurationReader.getProperty(\"browser\") = " + ConfigurationReader.getProperty("browser"));
+        System.out.println("ConfigurationReader.getProperty(\"smartbearUrl\") = " + ConfigurationReader.getProperty("smartbearUrl"));
+    }
+
 }
+
+
