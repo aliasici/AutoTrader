@@ -8,17 +8,33 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
 public class Practice_9_10_11 extends TestBase {
     // Finally I moved all @BeforeMethod and @AfterMethod in TestBase
 
 
     @Test
-    public void p9_delete_order_task(){
+    public void p9_delete_order_task() throws IOException {
         //http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx
-        driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
 
+        //Creating properties object to be able to read properties file
+        Properties properties = new Properties();
+
+        //Opening the file in JVM memory using FileInputStream
+        FileInputStream file = new FileInputStream("configuration.properties");
+
+        //Loading the file into properties object
+        properties.load(file);
+
+        //URL is coming from configuration.properties
+        String url = properties.getProperty("smartbearUrl");
+
+       // driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
+        driver.get(url);
         // I called the method from SmartBearUtilities
         SmartBearUtilities.loginToSmartBear(driver);
 
